@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #292929 !important;
+    }
+
+    .navbar-brand {
+      color: #ffffff !important;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ffffff !important;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 15px;
+      text-transform: uppercase;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #00BFFF !important;
+    }
+
+    .dropdown-menu {
+      background-color: #292929;
+    }
+
+    .dropdown-menu .dropdown-item {
+      color: #ffffff !important;
+      font-weight: bold;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #008080;
+    }
+
+    .modal-content {
+      background-color: #292929;
+      color: #ffffff;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid #ffffff;
+    }
+
+    .modal-title {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .modal-footer .btn-secondary {
+      background-color: #008080;
+      border-color: #008080;
+    }
+
+    .modal-footer .btn-secondary:hover {
+      background-color: #005656;
+      border-color: #005656;
+    }
+
+    .modal-footer .btn-primary {
+      background-color: #ff4500;
+      border-color: #ff4500;
+    }
+
+    .modal-footer .btn-primary:hover {
+      background-color: #cc3700;
+      border-color: #cc3700;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MENU</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shopee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Amazon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Estoque</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Entrada</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saída</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Opções
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPassword">Mudar Senha</a>
+            <a class="dropdown-item" href="#" onclick="logout()">Deslogar</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="modalPasswordLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPasswordLabel">Mudar Senha</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="oldPassword">Senha Antiga</label>
+              <input type="password" class="form-control" id="oldPassword">
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Nova Senha</label>
+              <input type="password" class="form-control" id="newPassword">
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirmar Nova Senha</label>
+              <input type="password" class="form-control" id="confirmPassword">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="changePassword()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function changePassword() {
+      // Lógica para alterar a senha
+      console.log('Senha alterada com sucesso!');
+      $('#modalPassword').modal('hide'); // Fechar o modal após a alteração
+    }
+
+    function logout() {
+      // Lógica para fazer logout
+      console.log('Usuário deslogado!');
+      // Redirecionar para a página de login, por exemplo
+    }
+  </script>
+</body>
+</html>
