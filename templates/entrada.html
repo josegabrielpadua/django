@@ -5,20 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopee</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js-scripts/main.js' %}"></script>
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/menu.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/button.css' %}">
     <link rel="stylesheet" href="{% static 'css/records.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,22 +30,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'menu' %}">Página inicial</a> <!-- Alteração do link -->
+                <a class="nav-link" href="{% url 'menu' %}">Página inicial</a> <!-- Alteração do link -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'estoque' %}">Estoque</a>
+                <a class="nav-link" href="{% url 'estoque' %}">Estoque</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'entrada' %}">Entrada</a>
+                <a class="nav-link" href="{% url 'entrada' %}">Entrada</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'saida' %}">Saída</a>
+                <a class="nav-link" href="{% url 'saida' %}">Saída</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'shopee' %}">Shopee</a> <!-- Alteração do link -->
+                <a class="nav-link" href="{% url 'shopee' %}">Shopee</a> <!-- Alteração do link -->
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'amazon' %}">Amazon</a>
+                <a class="nav-link" href="{% url 'amazon' %}">Amazon</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -105,8 +105,6 @@
         </div>
       </div>
 
-      
-
 <div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="modalPasswordLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -142,28 +140,18 @@
 </div>
 
 <main>
-    <button type="button" class="button blue mobile" id="cadastrarProduto">Cadastrar Produto</button>
-    <table id="product-table" class="records">
+    <button type="button" class="button blue mobile" id="registrarEntrada">Registrar Entrada</button>
+    <table class="records">
         <thead>
             <tr>
                 <th>Produto</th>
-                <th>Custo</th>
-                <th>Custo 10%</th>
-                <th>Custo 15%</th>
-                <th>Preço Simples</th>
-                <th>Preço Ideal</th>
-                <th>Preço Sendo Vendido</th>
-                <th>Sobra</th>
-                <th>Contribuição</th>
+                <th>Quantidade</th>
+                <th>Data</th>
+                <th>Observação</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
                 <td> </td>
                 <td> </td>
                 <td> </td>
@@ -173,17 +161,9 @@
                     <button type="button" class="button red">excluir</button>
                 </td>
             </tr>
+        
         </tbody>
     </table>
-    
-    <!-- Início da marcação da paginação -->
-    <div class="dataTables_wrapper">
-        <div class="dataTables_paginate">
-            <!-- Aqui será gerada a paginação -->
-        </div>
-    </div>
-    <!-- Fim da marcação da paginação -->
-    
     <div class="modal" id="modal">
         <div class="modal-content">
             <header class="modal-header">
@@ -194,11 +174,10 @@
                 <select class="modal-field" id="produto" placeholder="Produto">
                     <option value="" selected disabled>Selecione o Produto</option>
                 </select>
-                
-                <select class="modal-field" id="preco-custo" placeholder="Preço de Custo">
-                    <option value="" selected disabled>Selecione o Preço de Custo</option>
-                </select>
-                <input type="text" pattern="[0-9]+([,\.][0-9]+)?" class="modal-field" placeholder="Preço sendo vendido">
+    
+                <input type="text" class="modal-field" placeholder="Quantidade">
+                <input type="text" class="modal-field" placeholder="Data">
+                <input type="text" class="modal-field" placeholder="Observação">
             </form>
             <footer class="modal-footer">
                 <button class="button green">Salvar</button>
@@ -206,8 +185,7 @@
             </footer>
         </div>
     </div>
-</main>
-
+  </main>
 
 <div class="modal fade" id="modalAddProduct" tabindex="-1" role="dialog" aria-labelledby="modalAddProductLabel"
      aria-hidden="true">

@@ -1,0 +1,80 @@
+.records{
+    width: 100%;
+    user-select: none;
+    text-align: left;
+}
+
+.records th{
+    color: white;
+    height: 50px;
+    background-color: var(--primary-color);
+    padding-left: 20px;
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+.records td{
+    height: 50px;
+    padding-left: 20px;
+}
+
+.records th:last-child,
+.records td:last-child{
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+}
+
+.records tr:hover{
+    background-color: var(--secundary-color);
+}
+
+@media(max-width:480px){
+    .records{
+        border-spacing: 5px;
+    }
+    .records thead{
+        display:none;
+    }
+    .records tr{
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    .records td:not(:first-child){
+        display:flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .records td{
+        margin:10px 0;
+    }
+
+    .records tr:hover{
+        background-color: inherit;
+    }
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    float: none;
+    text-align: center;
+    margin-top: 20px; /* Adicionando margem superior para separar da tabela */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 5px 10px; /* Adicionando preenchimento aos botões de paginação */
+    margin-right: 5px; /* Adicionando margem entre os botões */
+    background-color: #007bff; /* Cor de fundo dos botões */
+    color: #ffffff; /* Cor do texto dos botões */
+    border: none; /* Removendo a borda dos botões */
+    border-radius: 5px; /* Adicionando borda arredondada aos botões */
+    cursor: pointer; /* Alterando o cursor ao passar sobre os botões */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #0056b3; /* Alterando a cor de fundo ao passar o mouse sobre os botões */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    background-color: #6c757d; /* Alterando a cor de fundo dos botões desativados */
+    cursor: not-allowed; /* Alterando o cursor para não permitido nos botões desativados */
+}
+

@@ -10,14 +10,14 @@ nav {
 .navbar-brand {
     color: #ffffff !important;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .navbar-nav .nav-link {
     color: #ffffff !important;
     font-weight: bold;
-    font-size: 14px;
-    padding: 15px;
+    font-size: 16px;
+    padding: 10px 15px; /* Ajuste do padding para reduzir a altura dos links */
     text-transform: uppercase;
 }
 
@@ -81,24 +81,6 @@ th, td {
     background-color: #f3f0f0;
 }
 
-.dataTables_wrapper .dataTables_filter {
-    float: left;
-}
-
-.dataTables_wrapper .dataTables_paginate {
-    float: none;
-    text-align: center;
-}
-
-/* Estilos para as linhas da tabela */
-#product-table tbody tr {
-    background-color: #f8f9fa; /* Cor de fundo das linhas alternadas */
-}
-
-#product-table tbody tr:nth-child(odd) {
-    background-color: #e9ecef; /* Cor de fundo das linhas pares */
-}
-
-#product-table tbody tr:hover {
-    background-color: #dee2e6; /* Cor de fundo ao passar o mouse sobre a linha */
+.navbar {
+    min-height: 50px; /* Reduzindo a altura da barra de navegação */
 }

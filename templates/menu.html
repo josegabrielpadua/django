@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="{% static 'js-scripts/main.js' %}"></script>
   <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-  <link rel="stylesheet" href="{% static 'menu.css' %}">
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}">
     
 </head>
 <body>
@@ -28,19 +28,19 @@
           <a class="nav-link" href="{% url 'menu' %}">Página inicial</a> <!-- Alteração do link -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Estoque</a>
+          <a class="nav-link" href="{% url 'estoque' %}">Estoque</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Entrada</a>
+          <a class="nav-link" href="{% url 'entrada' %}">Entrada</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Saída</a>
+          <a class="nav-link" href="{% url 'saida' %}">Saída</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'shopee' %}">Shopee</a> <!-- Alteração do link -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Amazon</a>
+          <a class="nav-link" href="{% url 'amazon' %}">Amazon</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
