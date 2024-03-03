@@ -175,6 +175,3 @@ cython_debug/
 
 # Ignorar a pasta "documentação"
 /documentação/
-
-# Ignorar o arquivo "pagina_estoque.jpg"
-pagina_estoque.jpg
