@@ -15,61 +15,95 @@
     <script src="{% static 'js-scripts/main.js' %}"></script>
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
     <link rel="stylesheet" href="{% static 'menu.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'button.css' %}">
+    <link rel="stylesheet" href="{% static 'records.css' %}">
+    <link rel="stylesheet" href="{% static 'modal.css' %}">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">MENU</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">MENU</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'menu' %}">Página inicial</a> <!-- Alteração do link -->
+              <a class="nav-link" href="{% url 'menu' %}">Página inicial</a> <!-- Alteração do link -->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Estoque</a>
+              <a class="nav-link" href="#">Estoque</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Entrada</a>
+              <a class="nav-link" href="#">Entrada</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Saída</a>
+              <a class="nav-link" href="#">Saída</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'shopee' %}">Shopee</a> <!-- Alteração do link -->
+              <a class="nav-link" href="{% url 'shopee' %}">Shopee</a> <!-- Alteração do link -->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Amazon</a>
+              <a class="nav-link" href="#">Amazon</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Admin
-                </a>
-                <div class="dropdown-menu" aria-labelledby="adminDropdown">
-                    <a class="dropdown-item" href="#">Usuários</a>
-                    <a class="dropdown-item" href="#">Log de Auditoria</a>
-                    <a class="dropdown-item" href="#">Grupos</a>
-                </div>
+              <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin
+              </a>
+              <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                <a class="dropdown-item" href="#">Usuários</a>
+                <a class="dropdown-item" href="#">Log de Auditoria</a>
+                <a class="dropdown-item" href="#">Grupos</a>
+              </div>
             </li>
-        </ul>
-        <ul class="navbar-nav">
+          </ul>
+          <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Perfil
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPassword">Mudar Senha</a>
-                    <a class="dropdown-item" href="#" onclick="logout()">Sair</a>
-                </div>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPassword">Mudar Senha</a>
+                <a class="dropdown-item" href="#" onclick="logout()">Sair</a>
+              </div>
             </li>
-        </ul>
-    </div>
-</nav>
+          </ul>
+        </div>
+      </nav>
+    
+      <div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="modalPasswordLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalPasswordLabel">Mudar Senha</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="oldPassword">Senha Antiga</label>
+                  <input type="password" class="form-control" id="oldPassword">
+                </div>
+                <div class="form-group">
+                  <label for="newPassword">Nova Senha</label>
+                  <input type="password" class="form-control" id="newPassword">
+                </div>
+                <div class="form-group">
+                  <label for="confirmPassword">Confirmar Nova Senha</label>
+                  <input type="password" class="form-control" id="confirmPassword">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" onclick="changePassword()">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="modalPasswordLabel"
      aria-hidden="true">
@@ -105,31 +139,65 @@
     </div>
 </div>
 
-<div class="container-fluid d-flex justify-content-center my-5">
-    <div>
-        <div class="mb-3">
-            <button class="btn btn-primary btn-add" data-toggle="modal" data-target="#modalAddProduct">Adicionar Produto</button>
-        </div>
-            <div class="table-responsive">
-                <table id="product-table" class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Preço sendo vendido</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <button type="button" class="button green">editar</button>
-                            <button type="button" class="button red">excluir</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+<main>
+    <button type="button" class="button blue mobile" id="cadastrarProduto">Cadastrar Produto</button>
+    <table class="records">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Custo</th>
+                <th>Custo 10%</th>
+                <th>Custo 15%</th>
+                <th>Preço Simples</th>
+                <th>Preço Ideal</th>
+                <th>Preço Sendo Vendido</th>
+                <th>Sobra</th>
+                <th>Contribuição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>
+                    <button type="button" class="button green">editar</button>
+                    <button type="button" class="button red">excluir</button>
+                </td>
+            </tr>
+        
+        </tbody>
+    </table>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Novo Cliente</h2>
+                <span class="modal-close" id="modalClose">&#10006;</span>
+            </header>
+            <form class="modal-form">
+                <select class="modal-field" id="produto" placeholder="Produto">
+                    <option value="" selected disabled>Selecione o Produto</option>
+                </select>
+                
+                <select class="modal-field" id="preco-custo" placeholder="Preço de Custo">
+                    <option value="" selected disabled>Selecione o Preço de Custo</option>
+                </select>
+                <input type="text" pattern="[0-9]+([,\.][0-9]+)?" class="modal-field" placeholder="Sobra">
+                <input type="text" pattern="[0-9]+([,\.][0-9]+)?" class="modal-field" placeholder="Contribuição">
+            </form>
+            <footer class="modal-footer">
+                <button class="button green">Salvar</button>
+                <button class="button blue">Cancelar</button>
+            </footer>
         </div>
     </div>
+  </main>
 
 <div class="modal fade" id="modalAddProduct" tabindex="-1" role="dialog" aria-labelledby="modalAddProductLabel"
      aria-hidden="true">
