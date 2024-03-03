@@ -28,8 +28,8 @@ https://github.com/josegabrielpadua/django.git
 ### 2. Criar e Ativar um Ambiente Virtual
 
 #### No Windows:
-```
 
+```
 python -m venv venv
 venv\Scripts\activate
 ```
