@@ -4,7 +4,7 @@ Nesse projeto, estou desenvolvendo um sistema de estoque para uma necessidade es
 
 Com tudo que foi feito até nesse presado momento, ela possui essa face, que permanecerá por um tempo:
 
-![Página de Estoque.](documentação\pagina_estoque.jpg)
+![Página de_estoque](https://github.com/josegabrielpadua/django/assets/118117592/dd1aea9e-08bc-4412-b4fa-873ab97a194f)
 
 ## Tecnologias necessárias: 
 
