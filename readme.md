@@ -59,4 +59,12 @@ Com todas as dependências instaladas, você está pronto para executar o projet
 - Sempre ative o ambiente virtual antes de trabalhar no projeto para garantir que todas as dependências estejam isoladas e funcionando corretamente.
 - Certifique-se de que o Python esteja instalado no seu sistema antes de criar o ambiente virtual.
 
+Quando estiver dentro do ambiente virtual, execute o comando: 
+
+```
+python manage.py runserver
+```
+
+Dessa forma, conseguirá executar um servidor local. 
+
 ### Autor: José gabriel dos Santos Pádua 
