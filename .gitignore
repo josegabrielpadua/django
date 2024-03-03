@@ -173,8 +173,5 @@ cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
 
-# Ignorar a pasta "documentação"
+# Ignore a pasta documentação
 /documentação/
-
-# Ignorar o arquivo "pagina_estoque.jpg"
-pagina_estoque.jpg
