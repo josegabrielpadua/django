@@ -4,8 +4,8 @@ Nesse projeto, estou desenvolvendo um sistema de estoque para uma necessidade es
 
 Com tudo que foi feito até nesse presado momento, ela possui essa face, que permanecerá por um tempo:
 
-![[Pasted image 20240303200545.png]]
-[Página de Estoque]
+![Página de Estoque.](documentação\pagina_estoque.jpg)
+
 ## Tecnologias necessárias: 
 
 * asgiref
