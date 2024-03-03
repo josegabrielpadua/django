@@ -4,11 +4,7 @@ Nesse projeto, estou desenvolvendo um sistema de estoque para uma necessidade es
 
 Com tudo que foi feito até nesse presado momento, ela possui essa face, que permanecerá por um tempo:
 
-<<<<<<< HEAD
 ![Página de Estoque](https://github.com/josegabrielpadua/django/assets/118117592/dd1aea9e-08bc-4412-b4fa-873ab97a194f)
-=======
-![Página de_estoque](https://github.com/josegabrielpadua/django/assets/118117592/dd1aea9e-08bc-4412-b4fa-873ab97a194f)
->>>>>>> 5a4ae49ab2562e56f222e23b48a7719465b20594
 
 ## Tecnologias necessárias: 
 
