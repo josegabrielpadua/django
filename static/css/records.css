@@ -2,6 +2,7 @@
     width: 100%;
     user-select: none;
     text-align: left;
+    border-radius: 2px;
 }
 
 .records th{

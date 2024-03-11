@@ -13,11 +13,12 @@
     <link rel="stylesheet" href="{% static 'css/button.css' %}">
     <link rel="stylesheet" href="{% static 'css/records.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/shopee.js' %}"></script>
 
 </head>
 <body>
@@ -142,52 +143,46 @@
 </div>
 
 <main>
+
     <button type="button" class="button blue mobile" id="cadastrarProduto">Cadastrar Produto</button>
     <table id="product-table" class="records">
         <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Custo</th>
-                <th>Custo 10%</th>
-                <th>Custo 15%</th>
-                <th>Preço Simples</th>
-                <th>Preço Ideal</th>
-                <th>Preço Sendo Vendido</th>
-                <th>Sobra</th>
-                <th>Contribuição</th>
+          <tr>
+              <th>Produto</th>
+              <th>Custo</th>
+              <th>Custo 10%</th>
+              <th>Custo 15%</th>
+              <th>Preço Simples</th>
+              <th>Preço Ideal</th>
+              <th>Preço Sendo Vendido</th>
+              <th>Sobra</th>
+              <th>Contribuição</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td>
-                    <button type="button" class="button green">editar</button>
-                    <button type="button" class="button red">excluir</button>
-                </td>
-            </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td>
+              <button type="button" class="button green">editar</button>
+              <button type="button" class="button red">excluir</button>
+            </td>
+          </tr>
         </tbody>
     </table>
-    
-    <!-- Início da marcação da paginação -->
-    <div class="dataTables_wrapper">
-        <div class="dataTables_paginate">
-            <!-- Aqui será gerada a paginação -->
-        </div>
-    </div>
-    <!-- Fim da marcação da paginação -->
+            
     
     <div class="modal" id="modal">
         <div class="modal-content">
             <header class="modal-header">
-                <h2>Novo Cliente</h2>
+                <h2>Novo Produto</h2>
                 <span class="modal-close" id="modalClose">&#10006;</span>
             </header>
             <form class="modal-form">
@@ -202,7 +197,7 @@
             </form>
             <footer class="modal-footer">
                 <button class="button green">Salvar</button>
-                <button class="button blue">Cancelar</button>
+                <button class="button red">Cancelar</button>
             </footer>
         </div>
     </div>
@@ -251,27 +246,21 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('#product-table').DataTable({
-            "dom": '<"top"f>rt<"bottom"lp><"clear">',
-            "language": {
-                "info": "_START_ - _END_ de _TOTAL_ registros",
-                "infoEmpty": "0 - 0 de 0 registros",
-                "infoFiltered": "(filtrados de _MAX_ registros no total)",
-                "paginate": {
-                    "previous": "Anterior",
-                    "next": "Próximo"
-                },
-                "lengthMenu": "Exibir _MENU_ registros por página",
-                "zeroRecords": "Nenhum registro encontrado",
-                "emptyTable": "Nenhum dado disponível na tabela",
-                "loadingRecords": "Carregando...",
-                "processing": "Processando...",
-                "search": "", // Aqui você remove o texto "Pesquisar"
-                "searchPlaceholder": "Pesquisar...", // Você pode personalizar o texto do placeholder aqui
-            }
-        });
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  // Configuração da grade
+  var gridOptions = {
+      pagination: true, // Ativar paginação
+      paginationPageSize: 5, // Número de registros por página
+      domLayout: 'autoHeight' // Layout automático de altura da grade
+  };
+
+  // Selecionar a tabela HTML existente
+  var table = document.querySelector('#product-table');
+
+  // Inicializar a grade com a tabela HTML existente
+  new agGrid.Grid(table, gridOptions);
+});
+
 </script>
 
 </body>
